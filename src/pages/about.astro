@@ -12,7 +12,9 @@ const skills = ['html', 'css', 'javascript', 'react', 'astro'];
 
 const happy = true;
 
+// for style
 const skillColor = 'navy';
+const fontWeight = 'bold';
 ---
 
 <!doctype html>
@@ -21,14 +23,14 @@ const skillColor = 'navy';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
-    <style define:vars={{ skillColor }}>
+    <style define:vars={{ skillColor, fontWeight }}>
       h1 {
         color: purple;
         font-size: 4rem;
       }
       .skills {
         color: var(--skillColor);
-        font-weight: bold;
+        font-weight: var(--fontWeight);
       }
     </style>
   </head>
