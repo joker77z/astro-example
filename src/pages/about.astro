@@ -9,6 +9,10 @@ const identity = {
 };
 
 const skills = ['html', 'css', 'javascript', 'react', 'astro'];
+
+const happy = true;
+
+const skillColor = 'navy';
 ---
 
 <!doctype html>
@@ -17,8 +21,19 @@ const skills = ['html', 'css', 'javascript', 'react', 'astro'];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
+    <style define:vars={{ skillColor }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skills {
+        color: var(--skillColor);
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
+    <h1>About</h1>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
@@ -31,7 +46,9 @@ const skills = ['html', 'css', 'javascript', 'react', 'astro'];
     </ul>
     <p>My skills are:</p>
     <ul>
-      {skills.map(skill => <li>{skill}</li>)}
+      {skills.map(skill => <li class="skills">{skill}</li>)}
     </ul>
+    <p>my fill is :</p>
+    <span>{happy ? 'happy' : 'unHappy'}</span>
   </body>
 </html>
