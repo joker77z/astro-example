@@ -1,5 +1,14 @@
 ---
 const pageTitle = 'about me';
+
+const identity = {
+  firstName: 'Park',
+  country: 'south korea',
+  occupation: 'front end developer',
+  hobbies: ['Game', 'Dev', 'Writer'],
+};
+
+const skills = ['html', 'css', 'javascript', 'react', 'astro'];
 ---
 
 <!doctype html>
@@ -13,5 +22,16 @@ const pageTitle = 'about me';
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
+
+    <p>Here are a few facts about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}</li>
+      <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+      <li>Two of my hobbies are: {identity.hobbies.map(hobby => hobby).join(', ')}</li>
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+      {skills.map(skill => <li>{skill}</li>)}
+    </ul>
   </body>
 </html>
