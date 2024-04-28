@@ -10,6 +10,4 @@ alt: 'The full Astro logo.'
 tags: ['astro', 'blogging', 'learing in public']
 ---
 
-# my first blog post
-
 1. **오**: 신기합니다.
