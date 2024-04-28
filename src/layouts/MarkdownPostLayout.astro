@@ -1,7 +1,16 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 
-const { frontmatter } = Astro.props;
+interface Props {
+  frontmatter: {
+    title: string;
+    pubDate: string;
+    author: string;
+    tags: string[];
+  };
+}
+
+const { frontmatter } = Astro.props as Props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
