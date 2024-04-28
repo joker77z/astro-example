@@ -1,0 +1,15 @@
+---
+import BlogPost from '../../components/BlogPost.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await Astro.glob('../posts/*.md');
+
+const tags = allPosts.map(post => post.frontmatter.tags);
+const filteredTags = [...new Set(tags.flat())];
+---
+
+<BaseLayout pageTitle="tags">
+  <ul>
+    {filteredTags.map(tag => <BlogPost url={`/tags/${tag}`} title={tag} />)}
+  </ul>
+</BaseLayout>
