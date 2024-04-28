@@ -1,9 +1,6 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
-
-const pageTitle = 'about me';
 
 const identity = {
   firstName: 'Park',
@@ -21,42 +18,28 @@ const skillColor = 'navy';
 const fontWeight = 'bold';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skills {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-      }
-    </style>
-  </head>
-  <body>
-    <h1>About</h1>
-    <Header />
+<BaseLayout pageTitle="About Me">
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}</li>
+    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+    <li>Two of my hobbies are: {identity.hobbies.map(hobby => hobby).join(', ')}</li>
+  </ul>
+  <p>My skills are:</p>
+  <ul>
+    {skills.map(skill => <li class="skills">{skill}</li>)}
+  </ul>
+  <p>my fill is :</p>
+  <span>{happy ? 'happy' : 'unHappy'}</span>
+</BaseLayout>
 
-    <p>Here are a few facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}</li>
-      <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-      <li>Two of my hobbies are: {identity.hobbies.map(hobby => hobby).join(', ')}</li>
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map(skill => <li class="skills">{skill}</li>)}
-    </ul>
-    <p>my fill is :</p>
-    <span>{happy ? 'happy' : 'unHappy'}</span>
-    <Footer />
-  </body>
-  <script>
-    import '../scripts/menu';
-  </script>
-</html>
+<style define:vars={{ skillColor, fontWeight }}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+  .skills {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+  }
+</style>
